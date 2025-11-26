@@ -1,0 +1,63 @@
+import FollowupService from '../services/followup.service.js';
+
+class FollowupsController {
+  constructor() {
+    this.service = new FollowupService();
+  }
+
+  getAll = async (req, res, next) => {
+    try {
+      const followups = await this.service.getAll();
+      res.json(followups);
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  getById = async (req, res, next) => {
+    try {
+      const followup = await this.service.getById(req.params.id);
+      if (!followup) {
+        return res.status(404).json({ message: 'Followup not found' });
+      }
+      res.json(followup);
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  create = async (req, res, next) => {
+    try {
+      const followup = await this.service.create(req.body);
+      res.status(201).json(followup);
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  update = async (req, res, next) => {
+    try {
+      const followup = await this.service.update(req.params.id, req.body);
+      if (!followup) {
+        return res.status(404).json({ message: 'Followup not found' });
+      }
+      res.json(followup);
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  delete = async (req, res, next) => {
+    try {
+      const deleted = await this.service.delete(req.params.id);
+      if (!deleted) {
+        return res.status(404).json({ message: 'Followup not found' });
+      }
+      res.status(204).send();
+    } catch (err) {
+      next(err);
+    }
+  };
+}
+
+export default new FollowupsController();
