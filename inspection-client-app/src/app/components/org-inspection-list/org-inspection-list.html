@@ -1,3 +1,29 @@
 <div>
-   <h1>Organization Inspection list</h1>
+   <h2 class="card-title">Organization Inspection list</h2>
+</div>
+<div class="card-grid">
+   <mat-card class="contact-card"  *ngFor="let inspection of inspectionList; let i = index">
+      <mat-card-header>
+         <mat-card-title  class="row">
+            <mat-icon>person</mat-icon>
+            <span> {{inspection.name}}</span>
+         </mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content>
+         <p class="row"> 
+            <mat-icon>address</mat-icon>
+            <span> {{inspection.address}}</span>
+         </p>
+         <p class="row">
+            <mat-icon>phone</mat-icon>
+            <span>{{inspection.phone}}</span>
+         </p>
+
+         <p class="row">
+            <mat-icon>email</mat-icon>
+            <span>{{inspection.email}}</span>
+         </p>
+      </mat-card-content>
+   </mat-card>
 </div>
