@@ -10,7 +10,7 @@ DROP TABLE IF EXISTS location CASCADE;
 DROP TABLE IF EXISTS rep CASCADE;
 
 -- ============================================================================
---  CREATE TABLE: REP
+--  CREATE TABLE: REP (Table to store inspection representatives)
 -- ============================================================================
 
 CREATE TABLE rep (
