@@ -8,6 +8,17 @@ import attachmentsRoutes from './attachments.routes.js';
 
 const router = express.Router();
 
+/**
+ * @openapi
+ * /api:
+ *   get:
+ *     summary: API root endpoint
+ *     tags:
+ *       - Meta
+ *     responses:
+ *       200:
+ *         description: API root information
+ */
 router.get('/', (req, res) => {
   res.json({
     message: 'Inspection API root',
