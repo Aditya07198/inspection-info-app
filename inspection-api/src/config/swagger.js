@@ -9,8 +9,8 @@ const swaggerDefinition = {
   },
   servers: [
     {
-      url: 'http://localhost:3000',
-      description: 'Local dev'
+      url: '/',
+      description: 'Current host'
     }
   ]
 };
