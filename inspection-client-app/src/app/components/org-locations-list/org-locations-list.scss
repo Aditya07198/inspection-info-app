@@ -1,0 +1,58 @@
+:host {
+    .header-title  {
+        text-align: center;
+        color: #817e7e;
+    }
+    
+    .card-title {
+       padding-bottom: 7px;
+    }
+
+    html,
+    body {
+        overflow: hidden !important;
+        font-size: 16px
+    }
+
+    .card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 10px;
+        width: 100%;
+        box-sizing: border-box;
+          /* Keep vertical scrolling inside the list container so the page doesn't scroll
+              when the list is long. Adjust max-height as needed for your layout. */
+          max-height: calc(100vh - 50px);
+        overflow-y: auto;
+        padding-right: 6px; /* give space for scrollbar */
+    }
+
+    .contact-card {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .row {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .address-block {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .mat-mdc-card-content:last-child {
+        padding-bottom: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+    }
+
+    mat-icon {
+        color: #1976d2;
+    }
+}

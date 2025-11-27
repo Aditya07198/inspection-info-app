@@ -1,0 +1,37 @@
+<div>
+   <h2 class="header-title">Locations</h2> 
+</div>
+<div class="card-grid">
+   <div class="contact-card" *ngFor="let location of locations; let i = index">
+   <mat-card>
+      <mat-card-header>
+         <mat-card-title class="row card-title">
+            <mat-icon>person</mat-icon>
+            <span> {{ location.contact_name }}</span>
+         </mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content>
+         <div class="row">
+            <mat-icon>address</mat-icon>
+            <div class="address-block">
+               <span>{{ location.address_1 }}</span>
+               <span>{{ location.address_2 ? location.address_2 + ',' : '' }}</span>
+               <span>{{ location.city ? location.city + ', ' : ''}} {{ location.state_province }} {{ location.postal_code ? '-'
+                  + location.postal_code : '' }}</span>
+               <span>{{ location.country }}</span>
+            </div>
+         </div>
+         <div class="row">
+            <mat-icon>phone</mat-icon>
+            <span>{{ location.contact_mobile }}</span>
+         </div>
+
+         <div class="row">
+            <mat-icon>email</mat-icon>
+            <span>{{ location.contact_email }}</span>
+         </div>
+      </mat-card-content>
+   </mat-card>
+   </div>
+</div>

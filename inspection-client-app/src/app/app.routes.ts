@@ -1,14 +1,14 @@
 import { Routes } from '@angular/router';
-import { OrgInspectionList } from './components/org-inspection-list/org-inspection-list';
+import { OrgInspectionList as OrgLocationsList } from './components/org-locations-list/org-locations-list';
 
 export const routes: Routes = [
     {
         path: '',
-        redirectTo: 'org-inspection-list',
+        redirectTo: 'org-locations-list',
         pathMatch: 'full'
     },
     {
-        path: 'org-inspection-list',
-        component: OrgInspectionList
+        path: 'org-locations-list',
+        component: OrgLocationsList
     }
 ];
