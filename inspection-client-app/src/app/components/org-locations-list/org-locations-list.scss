@@ -21,11 +21,9 @@
         padding: 10px;
         width: 100%;
         box-sizing: border-box;
-          /* Keep vertical scrolling inside the list container so the page doesn't scroll
-              when the list is long. Adjust max-height as needed for your layout. */
-          max-height: calc(100vh - 50px);
+        max-height: calc(100vh - 50px);
         overflow-y: auto;
-        padding-right: 6px; /* give space for scrollbar */
+        padding-right: 6px;
     }
 
     .contact-card {
