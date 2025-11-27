@@ -2,7 +2,7 @@
     .main {
         border-bottom: 1px solid lightgray;
     }
-    
+
     .header-title  {
         text-align: center;
         color: #817e7e;
@@ -26,7 +26,7 @@
         padding: 10px;
         width: 100%;
         box-sizing: border-box;
-        max-height: calc(100vh - 50px);
+        max-height: calc(100vh - 5rem);
         overflow-y: auto;
         padding-bottom: 3rem; /* Prevent last card from hitting the screen edge */
     }
