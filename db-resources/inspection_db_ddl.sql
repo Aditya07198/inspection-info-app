@@ -10,7 +10,7 @@ DROP TABLE IF EXISTS location CASCADE;
 DROP TABLE IF EXISTS rep CASCADE;
 
 -- ============================================================================
---  CREATE TABLE: REP (Table to store inspection representatives)
+--  CREATE TABLE: REP
 -- ============================================================================
 
 CREATE TABLE rep (
@@ -52,6 +52,7 @@ CREATE TABLE location (
 -- ============================================================================
 --  CREATE TABLE: ATTACHMENT
 --  (generic, can link to any entity via entity_name + entity_id)
+--  Now stores the file as BYTEA (BLOB) instead of a storage_path
 -- ============================================================================
 
 CREATE TABLE attachment (
@@ -60,7 +61,7 @@ CREATE TABLE attachment (
     file_extension      VARCHAR(20),
     content_type        VARCHAR(100),
     file_size_bytes     BIGINT,
-    storage_path        VARCHAR(500) NOT NULL,
+    file_data           BYTEA        NOT NULL,
     description         VARCHAR(500),
     entity_name         VARCHAR(100) NOT NULL,
     entity_id           BIGINT       NOT NULL,
@@ -74,12 +75,12 @@ CREATE INDEX IF NOT EXISTS ix_attachment_entity
 
 -- ============================================================================
 --  CREATE TABLE: INQUIRY
---  (NOTE: customer_id (FK) as in ERD, referencing LOCATION.location_id)
+--  (location_id (FK) as in ERD, referencing LOCATION.location_id)
 -- ============================================================================
 
 CREATE TABLE inquiry (
     inquiry_id         BIGSERIAL PRIMARY KEY,
-    customer_id        BIGINT      NOT NULL,
+    location_id        BIGINT      NOT NULL,
     rep_id             BIGINT      NOT NULL,
     inquiry_date       TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     inquiry_channel    VARCHAR(50),
@@ -87,19 +88,19 @@ CREATE TABLE inquiry (
     inspection_required BOOLEAN    NOT NULL DEFAULT FALSE,
     notes              TEXT,
     CONSTRAINT fk_inquiry_location
-        FOREIGN KEY (customer_id) REFERENCES location (location_id),
+        FOREIGN KEY (location_id) REFERENCES location (location_id),
     CONSTRAINT fk_inquiry_rep
         FOREIGN KEY (rep_id)      REFERENCES rep (rep_id)
 );
 
 -- ============================================================================
 --  CREATE TABLE: INSPECTION_ORDER
---  (customer_id (FK) as in ERD, referencing LOCATION.location_id)
+--  (location_id (FK) as in ERD, referencing LOCATION.location_id)
 -- ============================================================================
 
 CREATE TABLE inspection_order (
     inspection_order_id BIGSERIAL PRIMARY KEY,
-    customer_id         BIGINT      NOT NULL,
+    location_id         BIGINT      NOT NULL,
     rep_id              BIGINT      NOT NULL,
     inquiry_id          BIGINT,
     order_date          TIMESTAMPTZ NOT NULL DEFAULT NOW(),
@@ -113,7 +114,7 @@ CREATE TABLE inspection_order (
     invoice_amount      NUMERIC(12,2),
     remarks             TEXT,
     CONSTRAINT fk_inspection_order_location
-        FOREIGN KEY (customer_id) REFERENCES location (location_id),
+        FOREIGN KEY (location_id) REFERENCES location (location_id),
     CONSTRAINT fk_inspection_order_rep
         FOREIGN KEY (rep_id)      REFERENCES rep (rep_id),
     CONSTRAINT fk_inspection_order_inquiry
@@ -142,13 +143,13 @@ CREATE TABLE inspection_followup (
 -- Optional supporting indexes
 
 CREATE INDEX IF NOT EXISTS ix_inquiry_customer_id
-    ON inquiry (customer_id);
+    ON inquiry (location_id);
 
 CREATE INDEX IF NOT EXISTS ix_inquiry_rep_id
     ON inquiry (rep_id);
 
 CREATE INDEX IF NOT EXISTS ix_inspection_order_customer_id
-    ON inspection_order (customer_id);
+    ON inspection_order (location_id);
 
 CREATE INDEX IF NOT EXISTS ix_inspection_order_rep_id
     ON inspection_order (rep_id);
