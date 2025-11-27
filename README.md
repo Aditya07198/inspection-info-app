@@ -96,7 +96,7 @@ DB_USER=dbadmin
 DB_PASSWORD=<password>
 DB_SSL=true
 PORT=3000
-ALLOWED_ORIGINS=http://localhost:4200
+ALLOWED_ORIGINS=http://localhost:4200, https://inspection-info-app.onrender.com,https://inspection-info-api-app.onrender.com
 ```
 
 Run:
