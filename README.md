@@ -78,24 +78,6 @@ inspection-info-app/
 | inspection_followup | Reminder & completion status |
 | attachment | **BLOB documents bound to ANY entity** |
 
-### Attachment Model (Final)
-
-```sql
-CREATE TABLE attachment (
-  attachment_id BIGSERIAL PRIMARY KEY,
-  file_name VARCHAR(255) NOT NULL,
-  file_extension VARCHAR(20),
-  content_type VARCHAR(100),
-  file_size_bytes BIGINT,
-  file_data BYTEA NOT NULL,
-  description VARCHAR(500),
-  entity_name VARCHAR(100) NOT NULL,
-  entity_id BIGINT NOT NULL,
-  uploaded_by_rep_id BIGINT REFERENCES rep(rep_id),
-  uploaded_at TIMESTAMPTZ DEFAULT NOW()
-);
-```
-
 ---  
 ## 🛠 Backend Execution (LOCAL)
 
