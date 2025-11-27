@@ -21,11 +21,11 @@ Rep.hasMany(Attachment, { foreignKey: 'uploaded_by_rep_id', as: 'uploadedAttachm
 Attachment.belongsTo(Rep, { foreignKey: 'uploaded_by_rep_id', as: 'uploadedBy' });
 
 // Location relations
-Location.hasMany(Inquiry, { foreignKey: 'customer_id', as: 'inquiries' });
-Inquiry.belongsTo(Location, { foreignKey: 'customer_id', as: 'customer' });
+Location.hasMany(Inquiry, { foreignKey: 'location_id', as: 'inquiries' });
+Inquiry.belongsTo(Location, { foreignKey: 'location_id', as: 'customer' });
 
-Location.hasMany(InspectionOrder, { foreignKey: 'customer_id', as: 'inspectionOrders' });
-InspectionOrder.belongsTo(Location, { foreignKey: 'customer_id', as: 'customer' });
+Location.hasMany(InspectionOrder, { foreignKey: 'location_id', as: 'inspectionOrders' });
+InspectionOrder.belongsTo(Location, { foreignKey: 'location_id', as: 'customer' });
 
 // Inquiry ↔ InspectionOrder
 Inquiry.hasMany(InspectionOrder, { foreignKey: 'inquiry_id', as: 'inspectionOrders' });

@@ -9,7 +9,7 @@ const Inquiry = sequelize.define(
       primaryKey: true,
       autoIncrement: true
     },
-    customer_id: {
+    location_id: {
       type: DataTypes.BIGINT,
       allowNull: false
     },
