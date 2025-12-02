@@ -1,36 +1,56 @@
 :host {
     .main {
         border-bottom: 1px solid lightgray;
+        position: relative;
+        padding: 0.5rem 1rem;
     }
 
-    .edit-form-header {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+    .header-title  {
+                text-align: center;
+                color: #817e7e;
+                margin: 0;
+                line-height: 2rem;
     }
 
-    .cancel-icon,
-    .save-icon {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        border: none;
-        background: transparent;
-        padding: 6px;
-
-        mat-icon {
-            font-size: 26px;
+        .cancel-icon {
+            position: absolute;
+            left: 0.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+            padding: 6px;
+            mat-icon { font-size: 26px; }
         }
-    }
 
-    .save-icon {
-        color: #1976d2;
+        .save-icon {
+            position: absolute;
+            right: 0.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+            padding: 6px;
+            mat-icon { font-size: 26px; color: #1976d2; }
+        }
+    
+    .card-header {
+        justify-content: space-between;
     }
 
     .header-title {
         text-align: center;
         color: #817e7e;
+        margin: 0;
+        line-height: 2rem;
     }
 
 
