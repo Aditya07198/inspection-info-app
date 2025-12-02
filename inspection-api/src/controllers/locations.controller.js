@@ -26,9 +26,27 @@ class LocationsController {
     }
   };
 
+  // create = async (req, res, next) => {
+  //   try {
+  //     const location = await this.service.create(req.body);
+  //     res.status(201).json(location);
+  //   } catch (err) {
+  //     next(err);
+  //   }
+  // };
+
   create = async (req, res, next) => {
     try {
-      const location = await this.service.create(req.body);
+      // Remove PK + normalize empty strings
+      const { location_id, created_at, updated_at, ...rest } = req.body || {};
+
+      Object.keys(rest).forEach((key) => {
+        if (rest[key] === '') {
+          rest[key] = null;
+        }
+      });
+
+      const location = await this.service.create(rest);
       res.status(201).json(location);
     } catch (err) {
       next(err);
