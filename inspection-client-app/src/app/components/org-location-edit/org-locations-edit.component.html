@@ -1,63 +1,66 @@
 <div class="main">
-   <h2 class="header-title">Edit Location</h2> 
-</div>
-<div class="card-grid">
-<mat-card>
-    <mat-card-title></mat-card-title>
-    <mat-card-content>
-      <form [formGroup]="form" (ngSubmit)="onSubmit()">
-        <mat-form-field appearance="fill" class="full-width">
-          <mat-label>Location Name</mat-label>
-          <input matInput formControlName="location_name">
-        </mat-form-field>
+    <div class="edit-form-header">
+        <button class="cancel-icon" mat-icon-button type="button" (click)="onCancel()">
+            <mat-icon>cancel</mat-icon>
+        </button>
+        <h2 class="header-title">Edit Location</h2>
+        <button [disabled]="loading" class="save-icon" mat-icon-button color="primary" type="submit" (click)="onSubmit()">
+            <mat-icon>save</mat-icon>
+        </button>
+    </div>
+    <div class="card-grid">
+        <mat-card>
+            <mat-card-title></mat-card-title>
+            <mat-card-content>
+                <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                    <mat-form-field appearance="fill" class="full-width">
+                        <mat-label>Location Name</mat-label>
+                        <input matInput formControlName="location_name">
+                    </mat-form-field>
 
-        <mat-form-field appearance="fill" class="full-width">
-          <mat-label>Address Line 1</mat-label>
-          <input matInput formControlName="address_1">
-        </mat-form-field>
+                    <mat-form-field appearance="fill" class="full-width">
+                        <mat-label>Address Line 1</mat-label>
+                        <input matInput formControlName="address_1">
+                    </mat-form-field>
 
-        <mat-form-field appearance="fill" class="full-width">
-          <mat-label>Address Line 2</mat-label>
-          <input matInput formControlName="address_2">
-        </mat-form-field>
+                    <mat-form-field appearance="fill" class="full-width">
+                        <mat-label>Address Line 2</mat-label>
+                        <input matInput formControlName="address_2">
+                    </mat-form-field>
 
-        <div class="form-row">
-          <mat-form-field appearance="fill" class="form-col">
-            <mat-label>City</mat-label>
-            <input matInput formControlName="city">
-          </mat-form-field>
+                    <div class="form-row">
+                        <mat-form-field appearance="fill" class="form-col">
+                            <mat-label>City</mat-label>
+                            <input matInput formControlName="city">
+                        </mat-form-field>
 
-          <mat-form-field appearance="fill" class="form-col">
-            <mat-label>Province / State</mat-label>
-            <input matInput formControlName="state_province">
-          </mat-form-field>
+                        <mat-form-field appearance="fill" class="form-col">
+                            <mat-label>Province / State</mat-label>
+                            <input matInput formControlName="state_province">
+                        </mat-form-field>
 
-          <mat-form-field appearance="fill" class="small-field">
-            <mat-label>Postal / ZIP</mat-label>
-            <input matInput formControlName="postal_code">
-          </mat-form-field>
-        </div>
+                        <mat-form-field appearance="fill" class="small-field">
+                            <mat-label>Postal / ZIP</mat-label>
+                            <input matInput formControlName="postal_code">
+                        </mat-form-field>
+                    </div>
 
-        <mat-form-field appearance="fill" class="full-width">
-          <mat-label>Country</mat-label>
-          <input matInput formControlName="country">
-        </mat-form-field>
+                    <mat-form-field appearance="fill" class="full-width">
+                        <mat-label>Country</mat-label>
+                        <input matInput formControlName="country">
+                    </mat-form-field>
 
-        <mat-form-field appearance="fill" class="full-width">
-          <mat-label>Contact Name</mat-label>
-          <input matInput formControlName="contact_name">
-        </mat-form-field>
+                    <mat-form-field appearance="fill" class="full-width">
+                        <mat-label>Contact Name</mat-label>
+                        <input matInput formControlName="contact_name">
+                    </mat-form-field>
 
-        <mat-form-field appearance="fill" class="full-width">
-          <mat-label>Contact Email</mat-label>
-          <input matInput formControlName="contact_email">
-        </mat-form-field>
-
-        <div class="action-row">
-          <button mat-stroked-button type="button" (click)="onCancel()" [disabled]="loading">Cancel</button>
-          <button mat-flat-button color="primary" type="submit" [disabled]="loading">{{ loading ? 'Saving...' : 'Save' }}</button>
-        </div>
-      </form>
-    </mat-card-content>
-</mat-card>
+                    <mat-form-field appearance="fill" class="full-width">
+                        <mat-label>Contact Email</mat-label>
+                        <input matInput formControlName="contact_email">
+                    </mat-form-field>
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
 </div>

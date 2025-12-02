@@ -8,11 +8,12 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { ClientApiService } from '../../services/client-api.service';
 import { firstValueFrom } from 'rxjs';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-org-location-edit',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule],
+  imports: [CommonModule, ReactiveFormsModule, MatIconModule, MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule],
   templateUrl: './org-locations-edit.component.html',
   styleUrls: ['./org-locations-edit.component.scss'],
 })
