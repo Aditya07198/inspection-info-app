@@ -42,19 +42,28 @@
             justify-content: center;
         }
 
-        /* Ensure the form area can scroll on small screens */
+        /* Ensure the form area can scroll on small screens. Use explicit height
+           and min-height:0 to allow inner scrolling on mobile browsers. */
         .card-grid {
+            /* enforce a concrete height so inner scrolling is enabled on mobile */
+            height: calc(100vh - 6rem);
             max-height: calc(100vh - 6rem);
+            min-height: 0;
             overflow-y: auto;
             -webkit-overflow-scrolling: touch; /* smooth native scrolling on iOS */
+            touch-action: pan-y; /* allow vertical panning on touch devices */
+            -ms-touch-action: pan-y;
+            overscroll-behavior-y: contain; /* prevent outer scroll capture */
             padding-right: 6px; /* give space for scrollbar */
             padding-bottom: 3rem; /* Prevent last card from hitting the screen edge */
+            position: relative;
         }
 
         /* Make the mat-card content flow naturally and allow inner scroll */
         mat-card {
             display: block;
             box-sizing: border-box;
+            min-height: 0; /* allow the card to shrink inside the scroll container */
         }
 
         /* Make the mobile scrollbar visible and usable */
@@ -69,12 +78,11 @@
 
         @media (max-width: 600px) {
             .card-grid {
+                height: calc(100vh - 5rem);
                 max-height: calc(100vh - 5rem);
             }
             .action-row {
                 justify-content: space-between;
             }
         }
-
-    
 }
