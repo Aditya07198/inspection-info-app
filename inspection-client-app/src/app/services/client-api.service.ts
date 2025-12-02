@@ -18,4 +18,16 @@ export class ClientApiService {
         headers: { 'Content-Type': 'application/json' }
     });
   }
+
+   updateLocation(id: number, location: OrgLocation): Observable<any> {
+    return this.httpClient.put<OrgLocation[]>(`${environment.baseUrl}${this.locationServiceUrl}/${id}`, location, {
+        headers: { 'Content-Type': 'application/json' }
+    });
+  }
+
+  createLocation(location: OrgLocation): Observable<any> {
+    return this.httpClient.post<OrgLocation>(`${environment.baseUrl}${this.locationServiceUrl}`, location, {
+      headers: { 'Content-Type': 'application/json' }
+    });
+  }
 }

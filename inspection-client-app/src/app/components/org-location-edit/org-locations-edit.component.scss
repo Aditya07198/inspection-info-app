@@ -1,0 +1,46 @@
+:host {
+     .main {
+        border-bottom: 1px solid lightgray;
+    }
+
+    .header-title  {
+        text-align: center;
+        color: #817e7e;
+    }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .full-width {
+            width: 100%;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            align-items: start;
+        }
+
+        .form-col {
+            flex: 1 1 180px;
+            min-width: 180px;
+        }
+
+        .small-field {
+            width: 160px;
+            min-width: 120px;
+        }
+
+        .action-row {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+            justify-content: center;
+        }
+
+    
+}

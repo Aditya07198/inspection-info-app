@@ -1,15 +1,45 @@
 :host {
     .main {
         border-bottom: 1px solid lightgray;
+        position: relative;
+        padding: 0.5rem 1rem;
     }
 
     .header-title  {
-        text-align: center;
-        color: #817e7e;
+                text-align: center;
+                color: #817e7e;
+                margin: 0;
+                line-height: 2rem;
     }
+
+        .add-icon {
+            position: absolute;
+            right: 0.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+            padding: 6px;
+            mat-icon { font-size: 26px; color: #1976d2; }
+        }
     
+    .card-header {
+        justify-content: space-between;
+    }
+
     .card-title {
-       padding-bottom: 7px;
+         padding-bottom: 7px;
+         justify-content: space-between;
+         align-items: center;
+         width: 100%;
+         .edit-icon {
+            margin-left: 12px;
+            mat-icon { cursor: pointer; }
+         }
     }
 
     html,

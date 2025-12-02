@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
-import { OrgInspectionList as OrgLocationsList } from './components/org-locations-list/org-locations-list';
+import { OrgLocationsListComponent as OrgLocationsListComponent } from './components/org-locations-list/org-locations-list.component';
+import { OrgLocationsEditComponent } from './components/org-location-edit/org-locations-edit.component';
 
 export const routes: Routes = [
     {
@@ -9,6 +10,15 @@ export const routes: Routes = [
     },
     {
         path: 'org-locations-list',
-        component: OrgLocationsList
+        component: OrgLocationsListComponent
+    }
+    ,
+    {
+        path: 'org-locations-list/new',
+        component: OrgLocationsEditComponent
+    },
+    {
+        path: 'org-locations-list/:id/edit',
+        component: OrgLocationsEditComponent
     }
 ];
