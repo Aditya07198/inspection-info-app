@@ -42,5 +42,38 @@
             justify-content: center;
         }
 
+        /* Ensure the form area can scroll on small screens */
+        .card-grid {
+            max-height: calc(100vh - 6rem);
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch; /* smooth native scrolling on iOS */
+            padding-right: 6px; /* give space for scrollbar */
+        }
+
+        /* Make the mat-card content flow naturally and allow inner scroll */
+        mat-card {
+            display: block;
+            box-sizing: border-box;
+        }
+
+        /* Make the mobile scrollbar visible and usable */
+        .card-grid::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        .card-grid::-webkit-scrollbar-thumb {
+            background: rgba(0,0,0,0.18);
+            border-radius: 6px;
+        }
+
+        @media (max-width: 600px) {
+            .card-grid {
+                max-height: calc(100vh - 5rem);
+            }
+            .action-row {
+                justify-content: space-between;
+            }
+        }
+
     
 }
