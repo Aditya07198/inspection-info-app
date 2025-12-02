@@ -48,6 +48,7 @@
             overflow-y: auto;
             -webkit-overflow-scrolling: touch; /* smooth native scrolling on iOS */
             padding-right: 6px; /* give space for scrollbar */
+            padding-bottom: 3rem; /* Prevent last card from hitting the screen edge */
         }
 
         /* Make the mat-card content flow naturally and allow inner scroll */
