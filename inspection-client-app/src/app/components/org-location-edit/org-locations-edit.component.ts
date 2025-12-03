@@ -32,13 +32,20 @@ export class OrgLocationsEditComponent {
       location_name: [''],
       address_1: [''],
       address_2: [''],
+      unit_number: [''],
       city: [''],
       state_province: [''],
       postal_code: [''],
       country: [''],
       contact_name: [''],
       contact_mobile: [''],
-      contact_email: ['']
+      contact_office_phone: [''],
+      phone_ext: [''],
+      contact_fax: [''],
+      contact_email: [''],
+      organization_type: [''],
+      created_at: [''],
+      updated_at: ['']
     });
   }
 
