@@ -90,7 +90,17 @@ export class OrgLocationsEditComponent {
         await firstValueFrom(this.clientApiService.updateLocation(this.form.value.location_id, this.form.value));
       } else {
         // create new
-        await firstValueFrom(this.clientApiService.createLocation(this.form.value));
+        // await firstValueFrom(this.clientApiService.createLocation(this.form.value));
+        const payload: any = { ...this.form.value };
+        delete payload.location_id;
+
+        Object.keys(payload).forEach((key) => {
+        if (payload[key] === '') {
+          payload[key] = null;
+        }
+        });
+
+        await firstValueFrom(this.clientApiService.createLocation(payload));
       }
       this.router.navigate(['org-locations-list']);
     } catch (err: any) {
