@@ -11,7 +11,7 @@ class InspectionOrderService {
     return InspectionOrder.findAll({
       order: [['inspection_order_id', 'ASC']],
       include: [
-        { model: Location, as: 'customer' },
+        { model: Location, as: 'location' },
         { model: Rep, as: 'rep' },
         { model: Inquiry, as: 'inquiry' },
         { model: InspectionFollowup, as: 'followups' }
@@ -22,7 +22,7 @@ class InspectionOrderService {
   async getById(id) {
     return InspectionOrder.findByPk(id, {
       include: [
-        { model: Location, as: 'customer' },
+        { model: Location, as: 'location' },
         { model: Rep, as: 'rep' },
         { model: Inquiry, as: 'inquiry' },
         { model: InspectionFollowup, as: 'followups' }

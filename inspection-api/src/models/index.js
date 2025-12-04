@@ -22,10 +22,10 @@ Attachment.belongsTo(Rep, { foreignKey: 'uploaded_by_rep_id', as: 'uploadedBy' }
 
 // Location relations
 Location.hasMany(Inquiry, { foreignKey: 'location_id', as: 'inquiries' });
-Inquiry.belongsTo(Location, { foreignKey: 'location_id', as: 'customer' });
+Inquiry.belongsTo(Location, { foreignKey: 'location_id', as: 'location' });
 
 Location.hasMany(InspectionOrder, { foreignKey: 'location_id', as: 'inspectionOrders' });
-InspectionOrder.belongsTo(Location, { foreignKey: 'location_id', as: 'customer' });
+InspectionOrder.belongsTo(Location, { foreignKey: 'location_id', as: 'location' });
 
 // Inquiry ↔ InspectionOrder
 Inquiry.hasMany(InspectionOrder, { foreignKey: 'inquiry_id', as: 'inspectionOrders' });

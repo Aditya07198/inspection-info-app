@@ -5,7 +5,7 @@ class InquiryService {
     return Inquiry.findAll({
       order: [['inquiry_id', 'ASC']],
       include: [
-        { model: Location, as: 'customer' },
+        { model: Location, as: 'location' },
         { model: Rep, as: 'rep' }
       ]
     });
@@ -14,7 +14,7 @@ class InquiryService {
   async getById(id) {
     return Inquiry.findByPk(id, {
       include: [
-        { model: Location, as: 'customer' },
+        { model: Location, as: 'location' },
         { model: Rep, as: 'rep' }
       ]
     });
