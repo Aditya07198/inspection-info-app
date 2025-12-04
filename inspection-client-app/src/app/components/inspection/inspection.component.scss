@@ -1,0 +1,108 @@
+:host {
+    .main {
+        border-bottom: 1px solid lightgray;
+        position: relative;
+        padding: 0.5rem 1rem;
+    }
+
+    .inspection-form-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    .header-title {
+        text-align: center;
+        color: #817e7e;
+        margin: 0;
+        line-height: 2rem;
+        flex: 1;
+    }
+
+    .cancel-icon {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .save-icon {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #1976d2;
+    }
+
+    .section-title {
+        color: #1976d2;
+        font-size: 1rem;
+        font-weight: 500;
+        margin: 1.5rem 0 0.5rem 0;
+        border-bottom: 1px solid #e0e0e0;
+        padding-bottom: 0.25rem;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .full-width {
+        width: 100%;
+    }
+
+    .action-row {
+        display: flex;
+        gap: 8px;
+        margin-top: 24px;
+        justify-content: center;
+    }
+
+    .card-grid {
+        height: calc(100vh - 6rem);
+        max-height: calc(100vh - 6rem);
+        min-height: 0;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        touch-action: pan-y;
+        -ms-touch-action: pan-y;
+        overscroll-behavior-y: contain;
+        padding-right: 6px;
+        padding-bottom: 3rem;
+        position: relative;
+    }
+
+    mat-card {
+        display: block;
+        box-sizing: border-box;
+        min-height: 0;
+    }
+
+    .card-grid::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+
+    .card-grid::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.18);
+        border-radius: 6px;
+    }
+
+    mat-checkbox {
+        margin: 8px 0;
+    }
+
+    @media (max-width: 600px) {
+        .card-grid {
+            height: calc(100vh - 5rem);
+            max-height: calc(100vh - 5rem);
+        }
+
+        .action-row {
+            justify-content: space-between;
+        }
+    }
+}

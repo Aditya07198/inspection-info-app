@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { OrgLocationsListComponent as OrgLocationsListComponent } from './components/org-locations-list/org-locations-list.component';
 import { OrgLocationsEditComponent } from './components/org-location-edit/org-locations-edit.component';
+import { InspectionComponent } from './components/inspection/inspection.component';
 
 export const routes: Routes = [
     {
@@ -20,5 +21,9 @@ export const routes: Routes = [
     {
         path: 'org-locations-list/:id/edit',
         component: OrgLocationsEditComponent
+    },
+    {
+        path: 'inspection/:id',
+        component: InspectionComponent
     }
 ];

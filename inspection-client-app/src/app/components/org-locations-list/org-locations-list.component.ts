@@ -48,4 +48,10 @@ export class OrgLocationsListComponent {
     console.log('Add clicked');
     this.router.navigate(['org-locations-list', 'new']);
   }
+
+  onStartInspection(location: OrgLocation) {
+    console.log('Start Inspection clicked for', location);
+    const id = (location as any).location_id ?? (location as any).id ?? '';
+    this.router.navigate(['inspection', 'new'], { queryParams: { locationId: id } });
+  }
 }

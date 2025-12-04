@@ -89,4 +89,10 @@
     mat-icon {
         color: #1976d2;
     }
+
+    .header-icons {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
 }

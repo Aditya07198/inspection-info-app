@@ -12,7 +12,10 @@
             <mat-icon>person</mat-icon>
             <span> {{ location.contact_name }}</span>
          </mat-card-title>
+         <div class="header-icons">
           <span class="edit-icon" title="Edit" (click)="onEdit(location)"><mat-icon>edit</mat-icon></span>
+          <span class="inspection-icon" title="Start Inspection" (click)="onStartInspection(location)"><mat-icon>fact_check</mat-icon></span>
+         </div>
       </mat-card-header>
 
       <mat-card-content>

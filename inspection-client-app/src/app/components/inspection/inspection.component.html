@@ -1,0 +1,112 @@
+<div class="main">
+    <div class="inspection-form-header">
+        <button mat-icon-button type="button" (click)="onCancel()" class="cancel-icon">
+            <mat-icon>cancel</mat-icon>
+        </button>
+        <h2 class="header-title">{{ locationName ? 'Inspection - ' + locationName : 'New Inspection' }}</h2>
+        <button mat-icon-button color="primary" type="submit" class="save-icon" [disabled]="loading" (click)="onSubmit()">
+            <mat-icon>save</mat-icon>
+        </button>
+    </div>
+    <div class="card-grid">
+        <mat-card>
+            <mat-card-content>
+                <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                    
+                    <!-- Order & Scheduling Section -->
+                    <h3 class="section-title">Order & Scheduling</h3>
+                    
+                    <mat-form-field appearance="fill" class="full-width">
+                        <mat-label>Order Date</mat-label>
+                        <input matInput [matDatepicker]="orderPicker" formControlName="order_date">
+                        <mat-datepicker-toggle matIconSuffix [for]="orderPicker"></mat-datepicker-toggle>
+                        <mat-datepicker #orderPicker></mat-datepicker>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill" class="full-width">
+                        <mat-label>Scheduled Date</mat-label>
+                        <input matInput [matDatepicker]="scheduledPicker" formControlName="scheduled_date">
+                        <mat-datepicker-toggle matIconSuffix [for]="scheduledPicker"></mat-datepicker-toggle>
+                        <mat-datepicker #scheduledPicker></mat-datepicker>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill" class="full-width">
+                        <mat-label>Completion Date</mat-label>
+                        <input matInput [matDatepicker]="completionPicker" formControlName="completion_date">
+                        <mat-datepicker-toggle matIconSuffix [for]="completionPicker"></mat-datepicker-toggle>
+                        <mat-datepicker #completionPicker></mat-datepicker>
+                    </mat-form-field>
+
+                    <!-- Inspection Details Section -->
+                    <h3 class="section-title">Inspection Details</h3>
+
+                    <mat-form-field appearance="fill" class="full-width">
+                        <mat-label>Inspection Type</mat-label>
+                        <mat-select formControlName="inspection_type">
+                            <mat-option *ngFor="let type of inspectionTypes" [value]="type">
+                                {{ type.replace('_', ' ') }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill" class="full-width">
+                        <mat-label>Status</mat-label>
+                        <mat-select formControlName="status">
+                            <mat-option *ngFor="let status of inspectionStatuses" [value]="status">
+                                {{ status.replace('_', ' ') }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill" class="full-width">
+                        <mat-label>Rep ID</mat-label>
+                        <input matInput formControlName="rep_id">
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill" class="full-width">
+                        <mat-label>Inquiry ID</mat-label>
+                        <input matInput formControlName="inquiry_id">
+                    </mat-form-field>
+
+                    <!-- Follow-up Section -->
+                    <h3 class="section-title">Follow-up</h3>
+
+                    <mat-form-field appearance="fill" class="full-width">
+                        <mat-label>Next Due Date</mat-label>
+                        <input matInput [matDatepicker]="nextDuePicker" formControlName="next_due_date">
+                        <mat-datepicker-toggle matIconSuffix [for]="nextDuePicker"></mat-datepicker-toggle>
+                        <mat-datepicker #nextDuePicker></mat-datepicker>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill" class="full-width">
+                        <mat-label>Follow-up Start Date</mat-label>
+                        <input matInput [matDatepicker]="followupPicker" formControlName="followup_start_date">
+                        <mat-datepicker-toggle matIconSuffix [for]="followupPicker"></mat-datepicker-toggle>
+                        <mat-datepicker #followupPicker></mat-datepicker>
+                    </mat-form-field>
+
+                    <!-- Invoice Section -->
+                    <h3 class="section-title">Invoice</h3>
+
+                    <mat-checkbox formControlName="invoice_raised" class="full-width">
+                        Invoice Raised
+                    </mat-checkbox>
+
+                    <mat-form-field appearance="fill" class="full-width">
+                        <mat-label>Invoice Amount</mat-label>
+                        <input matInput type="number" formControlName="invoice_amount" prefix="$">
+                        <span matTextPrefix>$&nbsp;</span>
+                    </mat-form-field>
+
+                    <!-- Remarks Section -->
+                    <h3 class="section-title">Remarks</h3>
+
+                    <mat-form-field appearance="fill" class="full-width">
+                        <mat-label>Remarks / Notes</mat-label>
+                        <textarea matInput formControlName="remarks" rows="4"></textarea>
+                    </mat-form-field>
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
