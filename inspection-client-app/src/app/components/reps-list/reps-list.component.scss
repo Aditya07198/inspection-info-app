@@ -1,0 +1,57 @@
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 16px 24px 8px;
+}
+
+.header-title {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.add-icon {
+  margin-left: auto;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
+  padding: 16px 24px 24px;
+}
+
+.contact-card {
+  mat-card {
+    border-radius: 16px;
+  }
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-icons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.loading {
+  padding: 24px;
+}

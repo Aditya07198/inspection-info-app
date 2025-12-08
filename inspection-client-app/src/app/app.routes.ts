@@ -2,6 +2,9 @@ import { Routes } from '@angular/router';
 import { OrgLocationsListComponent as OrgLocationsListComponent } from './components/org-locations-list/org-locations-list.component';
 import { OrgLocationsEditComponent } from './components/org-location-edit/org-locations-edit.component';
 import { InspectionComponent } from './components/inspection/inspection.component';
+import { RepsListComponent } from './components/reps-list/reps-list.component';
+import { RepsEditComponent } from './components/reps-edit/reps-edit.component';
+
 
 export const routes: Routes = [
     {
@@ -25,5 +28,13 @@ export const routes: Routes = [
     {
         path: 'inspection/:id',
         component: InspectionComponent
-    }
+    },
+    { 
+        path: 'reps', 
+        component: RepsListComponent 
+    },
+    { 
+        path: 'reps/:id', 
+        component: RepsEditComponent 
+    },
 ];

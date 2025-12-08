@@ -34,7 +34,8 @@ const Rep = sequelize.define(
       defaultValue: DataTypes.NOW
     },
     updated_at: {
-      type: DataTypes.DATE
+      type: DataTypes.DATE,
+      allowNull: true
     }
   },
   {

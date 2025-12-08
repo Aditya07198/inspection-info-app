@@ -1,0 +1,27 @@
+.edit-card {
+  max-width: 800px;
+  margin: 24px auto;
+  padding: 16px 24px 24px;
+  border-radius: 16px;
+}
+
+.form-row {
+  display: flex;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.full-width {
+  flex: 1;
+}
+
+.toggle-row {
+  justify-content: flex-start;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+}

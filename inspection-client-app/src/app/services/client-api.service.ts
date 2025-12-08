@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { OrgLocation } from '../models/org-location';
 import { Inspection } from '../models/inspection';
+import { Rep } from '../models/rep';
 
 @Injectable({
   providedIn: 'root',
@@ -11,6 +12,7 @@ import { Inspection } from '../models/inspection';
 export class ClientApiService {
   private locationServiceUrl = '/api/locations';
   private inspectionServiceUrl = '/api/inspection-orders';
+  private repServiceUrl = '/api/reps';
   constructor(private httpClient: HttpClient) {
 
   }
@@ -44,4 +46,46 @@ export class ClientApiService {
       headers: { 'Content-Type': 'application/json' }
     });
   }
+
+  // -------------------------
+  // Reps API
+  // -------------------------
+
+  getReps(): Observable<Rep[]> {
+    return this.httpClient.get<Rep[]>(
+      `${environment.baseUrl}${this.repServiceUrl}`,
+      { headers: { 'Content-Type': 'application/json' } }
+    );
+  }
+
+  getRepById(id: number | string): Observable<Rep> {
+    return this.httpClient.get<Rep>(
+      `${environment.baseUrl}${this.repServiceUrl}/${id}`,
+      { headers: { 'Content-Type': 'application/json' } }
+    );
+  }
+
+  createRep(rep: Rep): Observable<Rep> {
+    return this.httpClient.post<Rep>(
+      `${environment.baseUrl}${this.repServiceUrl}`,
+      rep,
+      { headers: { 'Content-Type': 'application/json' } }
+    );
+  }
+
+  updateRep(id: number | string, rep: Rep): Observable<Rep> {
+    return this.httpClient.put<Rep>(
+      `${environment.baseUrl}${this.repServiceUrl}/${id}`,
+      rep,
+      { headers: { 'Content-Type': 'application/json' } }
+    );
+  }
+
+  deleteRep(id: number | string): Observable<void> {
+    return this.httpClient.delete<void>(
+      `${environment.baseUrl}${this.repServiceUrl}/${id}`,
+      { headers: { 'Content-Type': 'application/json' } }
+    );
+  }
+
 }

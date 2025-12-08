@@ -1,0 +1,56 @@
+<div class="main">
+  <h2 class="header-title">Reps</h2>
+  <button
+    class="add-icon"
+    mat-icon-button
+    aria-label="Add rep"
+    title="Add rep"
+    (click)="onAdd()"
+  >
+    <mat-icon>person_add</mat-icon>
+  </button>
+</div>
+
+<!-- Show loading text while the HTTP call is in flight -->
+<div *ngIf="loading" class="loading">Loading reps...</div>
+
+<!-- Show cards once loaded and we have reps -->
+<div class="card-grid" *ngIf="!loading && reps.length > 0">
+  <div class="contact-card" *ngFor="let rep of reps">
+    <mat-card>
+      <mat-card-header class="card-header">
+        <mat-card-title class="row card-title">
+          <mat-icon>person</mat-icon>
+          <span>{{ rep.first_name }} {{ rep.last_name }}</span>
+        </mat-card-title>
+        <div class="header-icons">
+          <span class="edit-icon" title="Edit" (click)="onEdit(rep)">
+            <mat-icon>edit</mat-icon>
+          </span>
+        </div>
+      </mat-card-header>
+
+      <mat-card-content>
+        <div class="row">
+          <mat-icon>phone</mat-icon>
+          <span>{{ rep.phone || '—' }}</span>
+        </div>
+
+        <div class="row">
+          <mat-icon>email</mat-icon>
+          <span>{{ rep.email || '—' }}</span>
+        </div>
+
+        <div class="row">
+          <mat-icon>check_circle</mat-icon>
+          <span>{{ rep.is_active === false ? 'Inactive' : 'Active' }}</span>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<!-- Only show this if loading is done and there is no data -->
+<div *ngIf="!loading && reps.length === 0" class="no-data">
+  No reps found.
+</div>

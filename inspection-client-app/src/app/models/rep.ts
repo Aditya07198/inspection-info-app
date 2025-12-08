@@ -1,10 +1,10 @@
 export interface Rep {
-  rep_id: string;
+  rep_id?: number;
   first_name: string;
   last_name: string;
-  phone: string;
-  email: string;
-  is_active: boolean;
-  created_at: string;
+  phone?: string | null;
+  email?: string | null;
+  is_active?: boolean | null;
+  created_at: string | null;
   updated_at: string | null;
 }
